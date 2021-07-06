@@ -9828,5 +9828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcb8077b1a8f1949a823968adc27cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  senoPrefab: {fileID: 2868399950293741431, guid: efcf75f9406f60444b2d3be5dbc7e0f5, type: 3}
+  spawnPoint: {fileID: 751196745173276326}
+  fireRate: 1
   speed: 20
-  direction: {x: 0, y: 0, z: 0}
+  bounds: 22

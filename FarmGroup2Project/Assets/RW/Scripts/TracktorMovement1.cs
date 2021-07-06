@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TracktorMovement : MonoBehaviour
+public class TracktorMovement1 : MonoBehaviour
 {
     [Header("Fire Property")]
     [SerializeField] private GameObject senoPrefab;
@@ -16,7 +16,10 @@ public class TracktorMovement : MonoBehaviour
     private float direction;
     private bool isPress;
 
-
+    private void Start()
+    {
+        nextFire = fireRate;
+    }
     void Update()
     {
         if (isPress)
@@ -27,7 +30,7 @@ public class TracktorMovement : MonoBehaviour
             }
         }
 
-        nextFire -= Time.deltaTime;
+        nextFire += Time.deltaTime;
     }
     public void PressLeft()
     {
@@ -46,15 +49,13 @@ public class TracktorMovement : MonoBehaviour
 
     public void PressFire()
     {
-        if(nextFire < 0)
+        if(nextFire > fireRate)
         {
             GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); // senoPrefab.transform.rotation
             Destroy(seno, 15f);
 
-            nextFire = fireRate;
+            nextFire = 0;
         }
-
-     
     }
 }
 
