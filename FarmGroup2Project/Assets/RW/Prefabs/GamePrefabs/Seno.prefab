@@ -58,7 +58,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2868399950293741431}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.6485724, y: 1.5944903, z: 1.66218}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   moveDirection: {x: 0, y: 0, z: 1}
-  rotateSpeed: 20
+  rotateSpeed: 150
   rotateDirection: {x: 1, y: 0, z: 0}
 --- !u!1 &8616554854648649329
 GameObject:
