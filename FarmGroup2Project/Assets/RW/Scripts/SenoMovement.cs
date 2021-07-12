@@ -27,6 +27,14 @@ public class SenoMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        Sheep sheep = col.GetComponent<Sheep>();
+        
+        if(sheep != null)
+        {
+            Destroy(gameObject);
+            Destroy(col.gameObject);
+        }
+
         if (col.gameObject.tag == "SenoDestroyTrigger") // other.CompareTag("SenoDestryTrigger")
         {
             Destroy(gameObject);            
