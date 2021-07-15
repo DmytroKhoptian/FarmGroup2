@@ -128,3 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   moveDirection: {x: 0, y: -1, z: 0}
+  force: 800
+  heartParticlePrefab: {fileID: 8134747155766010565, guid: aee393e596436814f9be1aecbe5da9ef, type: 3}
