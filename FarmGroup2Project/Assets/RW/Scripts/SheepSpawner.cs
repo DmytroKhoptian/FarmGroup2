@@ -30,8 +30,8 @@ public class SheepSpawner : MonoBehaviour
         {
             for (int i = 0; i < sheepCount; i++)
             {
-                //CreateSheep(); //Spawn
-                CreateSheepInSpawnPoints();
+                CreateSheep(); //Spawn
+                //CreateSheepInSpawnPoints();
                 yield return new WaitForSeconds(spawnRate);
             }
             sheepCount *= sheepCountWaveIncrease; //sheepCount = sheepCount * sheepCountWaveIncrease; 

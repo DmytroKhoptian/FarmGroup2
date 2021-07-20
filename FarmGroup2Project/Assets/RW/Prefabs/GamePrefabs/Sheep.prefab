@@ -126,7 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c617a63b2aa384291741d6c9dce5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  startSpeed: 10
   moveDirection: {x: 0, y: -1, z: 0}
-  force: 800
+  force: 700
   heartParticlePrefab: {fileID: 8134747155766010565, guid: aee393e596436814f9be1aecbe5da9ef, type: 3}
+  sheepOffset: {x: 0, y: 5, z: 0}
+  jumpForce: 200

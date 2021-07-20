@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class TracktorMovement1 : MonoBehaviour
 {
+    enum TractorCondition { Move, Stop }
+
+    TractorCondition tractorCondition = TractorCondition.Stop;
+
     [Header("Fire Property")]
     [SerializeField] private GameObject senoPrefab;
     [SerializeField] private Transform spawnPoint;
@@ -14,7 +18,7 @@ public class TracktorMovement1 : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float bounds;
     private float direction;
-    private bool isPress;
+
 
     private void Start()
     {
@@ -22,7 +26,7 @@ public class TracktorMovement1 : MonoBehaviour
     }
     void Update()
     {
-        if (isPress)
+        if (tractorCondition == TractorCondition.Move)
         {
             if (((transform.position.x > -bounds) && (direction == 1f)) || ((transform.position.x < bounds) && (direction == -1f)))
             {
@@ -35,16 +39,16 @@ public class TracktorMovement1 : MonoBehaviour
     public void PressLeft()
     {
         direction = -1f;
-        isPress = true;
+        tractorCondition = TractorCondition.Move;
     }
     public void PressRight()
     {
         direction = 1f;
-        isPress = true;
+        tractorCondition = TractorCondition.Move;
     }
     public void StopPress()
     {
-        isPress = false;
+        tractorCondition = TractorCondition.Stop;
     }
 
     public void PressFire()
