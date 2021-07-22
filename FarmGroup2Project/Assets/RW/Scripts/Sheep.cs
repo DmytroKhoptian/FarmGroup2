@@ -4,32 +4,36 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour
 {
-    [SerializeField] private float startSpeed;
-    private float moveSpeed;
+    [SerializeField] private SheepProperty sheepProperty;
 
-
+    //[SerializeField] private float startSpeed;   
     [SerializeField] private Vector3 moveDirection;
-
-    [SerializeField] private float force;
-    private Rigidbody rb;
-    private BoxCollider bc;
+    [SerializeField] private float force;  
     [SerializeField] private GameObject heartParticlePrefab; //получить префаб
     [SerializeField] private Vector3 sheepOffset;
-
     [SerializeField] private float jumpForce;
-    //создать шаблон енума идти, стоять
-    //созд экз и присвоить знач
 
+    private Rigidbody rb;
+    private BoxCollider bc;
+    private MeshRenderer mr;
+    private float moveSpeed;
 
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         bc = GetComponent<BoxCollider>();
+        mr = GetComponent<MeshRenderer>();
     }
     private void Start()
     {
-        moveSpeed = startSpeed;
+        Debug.Log(sheepProperty.Name); // get
+        sheepProperty.Name = "Molly"; // set
+        Debug.Log(sheepProperty.Name); // get
+
+
+        moveSpeed = sheepProperty.Speed;
+        mr.material = sheepProperty.Material;
     }
 
 
@@ -68,7 +72,7 @@ public class Sheep : MonoBehaviour
     {
         //-включить кинематику - восстановить скорость
         rb.isKinematic = true;
-        moveSpeed = startSpeed; //состояние идти
+        moveSpeed = sheepProperty.Speed; //состояние идти
     }
 
 

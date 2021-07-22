@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c617a63b2aa384291741d6c9dce5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 10
+  sheepProperty: {fileID: 11400000, guid: 744fe04d260be0a4b95c92b1432eafa5, type: 2}
   moveDirection: {x: 0, y: -1, z: 0}
   force: 700
   heartParticlePrefab: {fileID: 8134747155766010565, guid: aee393e596436814f9be1aecbe5da9ef, type: 3}
