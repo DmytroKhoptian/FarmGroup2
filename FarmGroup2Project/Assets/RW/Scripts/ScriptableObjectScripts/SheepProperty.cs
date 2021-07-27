@@ -32,15 +32,18 @@ public class SheepProperty : ScriptableObject
         }
     }
 
-
-
-
-
     public float Speed
     {
         get 
         {
-            return speed;
+            if(speed == 0)
+            {
+                return 5f;
+            }
+            else
+            {
+               return speed;
+            }        
         }
         // set
         //{

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour
 {
-    [SerializeField] private SheepProperty sheepProperty;
+    // [SerializeField] private SheepProperty sheepProperty;
+    [SerializeField] private List<SheepProperty> sheepProperty;
 
     //[SerializeField] private float startSpeed;   
     [SerializeField] private Vector3 moveDirection;
@@ -17,6 +18,9 @@ public class Sheep : MonoBehaviour
     private BoxCollider bc;
     private MeshRenderer mr;
     private float moveSpeed;
+    int randomSheepPropertyIndex;
+
+    [SerializeField] private SoundManager soundManager;
 
 
     private void Awake()
@@ -27,13 +31,17 @@ public class Sheep : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(sheepProperty.Name); // get
-        sheepProperty.Name = "Molly"; // set
-        Debug.Log(sheepProperty.Name); // get
+        randomSheepPropertyIndex = Random.Range(0, sheepProperty.Count);
 
 
-        moveSpeed = sheepProperty.Speed;
-        mr.material = sheepProperty.Material;
+
+        Debug.Log(sheepProperty[randomSheepPropertyIndex].Name); // get
+        sheepProperty[randomSheepPropertyIndex].Name = "Molly"; // set
+        Debug.Log(sheepProperty[randomSheepPropertyIndex].Name); // get
+
+
+        moveSpeed = sheepProperty[randomSheepPropertyIndex].Speed;
+        mr.material = sheepProperty[randomSheepPropertyIndex].Material;
     }
 
 
@@ -57,6 +65,8 @@ public class Sheep : MonoBehaviour
         GameObject particle = Instantiate(heartParticlePrefab, transform.position + sheepOffset, heartParticlePrefab.transform.rotation); // senoPrefab.transform.rotation
         Destroy(particle, 2f);
         Destroy(gameObject, 0.9f);
+
+        soundManager.PlaySheepHitClip();
     }
 
 
@@ -72,7 +82,7 @@ public class Sheep : MonoBehaviour
     {
         //-включить кинематику - восстановить скорость
         rb.isKinematic = true;
-        moveSpeed = sheepProperty.Speed; //состояние идти
+        moveSpeed = sheepProperty[randomSheepPropertyIndex].Speed; //состояние идти
     }
 
 
