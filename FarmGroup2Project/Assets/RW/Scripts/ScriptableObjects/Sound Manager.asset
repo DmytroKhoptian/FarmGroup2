@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c09a25015b45324f8e10273d83f7e8a, type: 3}
   m_Name: Sound Manager
   m_EditorClassIdentifier: 
-  shootClip: {fileID: 0}
-  sheepHitClip: {fileID: 0}
-  sheepDropClip: {fileID: 0}
+  shootClip: {fileID: 8300000, guid: afd9aad0b8c4b1141856b4808d8ea172, type: 3}
+  sheepHitClip: {fileID: 8300000, guid: e97ab3d76ee31794ba31802a0f2a719e, type: 3}
+  sheepDropClip: {fileID: 8300000, guid: d396aafd153ba394982f2aa1349363de, type: 3}

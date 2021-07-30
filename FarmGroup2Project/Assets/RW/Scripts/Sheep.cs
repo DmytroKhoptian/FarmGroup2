@@ -21,6 +21,8 @@ public class Sheep : MonoBehaviour
     int randomSheepPropertyIndex;
 
     [SerializeField] private SoundManager soundManager;
+    [SerializeField] private ScoreManager scoreManager;
+
 
 
     private void Awake()
@@ -33,12 +35,9 @@ public class Sheep : MonoBehaviour
     {
         randomSheepPropertyIndex = Random.Range(0, sheepProperty.Count);
 
-
-
-        Debug.Log(sheepProperty[randomSheepPropertyIndex].Name); // get
-        sheepProperty[randomSheepPropertyIndex].Name = "Molly"; // set
-        Debug.Log(sheepProperty[randomSheepPropertyIndex].Name); // get
-
+        //Debug.Log(sheepProperty[randomSheepPropertyIndex].Name); // get
+        //sheepProperty[randomSheepPropertyIndex].Name = "Molly"; // set
+        //Debug.Log(sheepProperty[randomSheepPropertyIndex].Name); // get
 
         moveSpeed = sheepProperty[randomSheepPropertyIndex].Speed;
         mr.material = sheepProperty[randomSheepPropertyIndex].Material;
@@ -66,7 +65,9 @@ public class Sheep : MonoBehaviour
         Destroy(particle, 2f);
         Destroy(gameObject, 0.9f);
 
-        soundManager.PlaySheepHitClip();
+        soundManager.PlaySheepHitClip();    
+        
+        scoreManager.AddSaveSheep();
     }
 
 
@@ -86,5 +87,10 @@ public class Sheep : MonoBehaviour
     }
 
 
-
+    public void DestroySheep()
+    {
+        soundManager.PlayDropClip();
+        scoreManager.AddDropSheep();
+        Destroy(gameObject);
+    }
 }
