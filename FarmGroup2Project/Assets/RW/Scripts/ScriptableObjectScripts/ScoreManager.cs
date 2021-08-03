@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScoreManager", menuName = "ScriptableObjects/NewScoreManager")]
 public class ScoreManager : ScriptableObject
 {
-    [SerializeField] public int sheepSaved;
+    [SerializeField] private int sheepSaved;
     [SerializeField] private int sheepDropped;
     [SerializeField] private int sheepDroppedBeforeGameOver;
 

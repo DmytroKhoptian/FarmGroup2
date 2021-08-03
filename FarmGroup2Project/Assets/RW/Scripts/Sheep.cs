@@ -21,7 +21,9 @@ public class Sheep : MonoBehaviour
     int randomSheepPropertyIndex;
 
     [SerializeField] private SoundManager soundManager;
-    [SerializeField] private ScoreManager scoreManager;
+
+    [SerializeField] private GameEvent SheepDroppedEvent;
+    [SerializeField] private GameEvent SheepSavedEvent;
 
 
 
@@ -65,9 +67,9 @@ public class Sheep : MonoBehaviour
         Destroy(particle, 2f);
         Destroy(gameObject, 0.9f);
 
-        soundManager.PlaySheepHitClip();    
-        
-        scoreManager.AddSaveSheep();
+        soundManager.PlaySheepHitClip();
+
+        SheepSavedEvent.Raise();
     }
 
 
@@ -90,7 +92,7 @@ public class Sheep : MonoBehaviour
     public void DestroySheep()
     {
         soundManager.PlayDropClip();
-        scoreManager.AddDropSheep();
+        SheepDroppedEvent.Raise();
         Destroy(gameObject);
     }
 }

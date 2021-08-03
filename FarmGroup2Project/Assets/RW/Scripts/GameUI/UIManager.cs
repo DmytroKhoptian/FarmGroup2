@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI saveSheepText;
+    [SerializeField] private TextMeshProUGUI dropSheepText;
+    [SerializeField] private ScoreManager scoreManager;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateScore()
     {
-        
+        saveSheepText.text = scoreManager.SheepSaved.ToString();
+        dropSheepText.text = scoreManager.SheepDropped.ToString();
+
+        if(scoreManager.SheepDropped > scoreManager.SheepDroppedBeforeGameOver)
+        {
+            Debug.Log("GameOver");
+        }
     }
 }

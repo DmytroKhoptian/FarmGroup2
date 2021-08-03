@@ -17,6 +17,25 @@ public class TracktorMovement : MonoBehaviour
     private float direction;
     private bool isPress;
 
+    [Header("SenoPool")]
+    [SerializeField] private int senoPoolSize;
+    [SerializeField] private List<GameObject> senos;
+    private int currentSenoIndex;
+
+    private void Awake()
+    {
+        senos = new List<GameObject>();
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < senoPoolSize; i++)
+        {
+            senos.Add(Instantiate(senoPrefab));
+            senos[i].transform.SetParent(senoContainer);
+            senos[i].SetActive(false);
+        }
+    }
 
     void Update()
     {
@@ -50,9 +69,19 @@ public class TracktorMovement : MonoBehaviour
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); // senoPrefab.transform.rotation
-            Destroy(seno, 15f);
-            seno.transform.SetParent(senoContainer);
+
+            senos[currentSenoIndex].transform.position = spawnPoint.position;
+            senos[currentSenoIndex].SetActive(true);
+
+            currentSenoIndex++;
+            if(currentSenoIndex >= senoPoolSize)
+            {
+                currentSenoIndex = 0;
+            }
+
+            //GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); // senoPrefab.transform.rotation
+            //Destroy(seno, 15f);
+
         }
     }
 }
