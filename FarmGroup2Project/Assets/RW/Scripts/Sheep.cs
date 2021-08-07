@@ -65,13 +65,20 @@ public class Sheep : MonoBehaviour
         //спауним патикл в позиции овцы +
         GameObject particle = Instantiate(heartParticlePrefab, transform.position + sheepOffset, heartParticlePrefab.transform.rotation); // senoPrefab.transform.rotation
         Destroy(particle, 2f);
-        Destroy(gameObject, 0.9f);
+
+        //Destroy(gameObject, 0.9f);
+        gameObject.SetActive(false); //дз Добавить коорутину или таймер
 
         soundManager.PlaySheepHitClip();
-
         SheepSavedEvent.Raise();
     }
-
+    public void DestroySheep()
+    {
+        soundManager.PlayDropClip();
+        SheepDroppedEvent.Raise();
+       // Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
 
     public void JumpThrowWater()
     {
@@ -89,10 +96,5 @@ public class Sheep : MonoBehaviour
     }
 
 
-    public void DestroySheep()
-    {
-        soundManager.PlayDropClip();
-        SheepDroppedEvent.Raise();
-        Destroy(gameObject);
-    }
+
 }

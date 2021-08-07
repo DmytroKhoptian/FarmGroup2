@@ -608,7 +608,7 @@ MonoBehaviour:
   - {fileID: 1107216276}
   - {fileID: 1578779426}
   - {fileID: 1917499489}
-  sheepPrefab: {fileID: 2400971428440194242, guid: 217b4a3014984b140b9456560e4abf9a, type: 3}
+  objectTag: Player
   spawnPosition: {x: 0, y: 0, z: 55}
   xSpawnBounds: {x: 22, y: -22}
   sheepCount: 5
@@ -1498,6 +1498,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3138555150195970, guid: 441a251f9bc00554ba1ccedeb6ba85d9, type: 3}
   m_PrefabInstance: {fileID: 1588049540968638695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1389528056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1389528058}
+  - component: {fileID: 1389528057}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1389528057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389528056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7efe54ca929ff4b8ed21645a182c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - pooledObject: {fileID: 2400971428440194242, guid: 217b4a3014984b140b9456560e4abf9a, type: 3}
+    poolSize: 5
+    willGrow: 1
+  pooledObjects:
+  - {fileID: 0}
+--- !u!4 &1389528058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389528056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.187004, y: -0.018081665, z: -25.378616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508344888
 GameObject:
   m_ObjectHideFlags: 0
